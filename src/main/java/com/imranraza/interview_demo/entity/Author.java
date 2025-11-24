@@ -3,6 +3,8 @@ package com.imranraza.interview_demo.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.*;
 
 
@@ -20,6 +22,7 @@ public class Author {
     @OneToMany(mappedBy = "author",
                cascade = CascadeType.ALL,
                orphanRemoval = true)
+    @JsonManagedReference
     private List<Book> books = new ArrayList<>();
 
     protected Author() {

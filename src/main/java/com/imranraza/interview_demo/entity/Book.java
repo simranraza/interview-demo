@@ -1,5 +1,7 @@
 package com.imranraza.interview_demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -15,6 +17,7 @@ public class Book {
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id", nullable = false)
+    @JsonBackReference
     private Author author;
 
     protected Book() {
